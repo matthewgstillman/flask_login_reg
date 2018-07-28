@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success</title>
+  </head>
+  <body>
+    <h1>SUCCESSFULLY LOGGED IN OR REGISTERED!</h1>
+    <div class="messages">
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+           {% for message in messages %}
+             <p>{{message}}</p>
+           {% endfor %}
+         {% endif %}
+       {% endwith %}
+    </div>
+    <div class="alldata">
+        <h1>Users</h1>
+        {% for user in all_users %}
+        <ul>
+        <li>{{ user['first_name'] }} {{ user['last_name'] }} - {{ user['email'] }} {{ user['hashed_password'] }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+    <a href="/">GO BACK</a>
+    <a href="/">LOGOUT</a>
+  </body>
+</html>
